@@ -11,10 +11,16 @@ const StaticNavEntry = (props) => {
     transitionDuration: `500ms`,
     transitionTiming: `ease-in`,
     transitionDelay: 0,
-    padding: "4px"
+    padding: "4px",
   }
+  
+  const transStyle = {...itemStyle};
+  transStyle.color = "#d9b310";
+
   return(
-  <li style={itemStyle}>{props.biome}</li>
+    <li style={itemStyle} onClick={(e) => { props.unRender(), props.selectAdventure(props.adventure.id, props.adventure.catagory /* sic */) }}> 
+      {props.adventure.title}
+    </li>
   )
 }
 

@@ -6,13 +6,29 @@ const StaticNavList = (props) => {
     position: "fixed",
     backgroundColor: "#242121",
     listStyle: "none",
-    // opacity: 0.95
+    borderRadius: '8px',
+    //The following props aren't currently used.
+    transitionProperty: `opacity`,
+    transitionDuration: `200ms`,
+    transitionTiming: `ease-in`,
+    transitionDelay: 0,
   }
+
   return (
-    <ul style={listStyle}>
-      {props.biomes.map((biome, index) => <StaticListEntry key={index} biome={biome}/>)}
+    <ul style={listStyle} onMouseLeave={() => { props.fadeListOut(), props.unGlow() } }>
+    {props.adventures.length  
+      ? props.adventures.map((adventure, index) => 
+        <StaticListEntry 
+          key={index} 
+          adventure={adventure} 
+          selectAdventure={props.selectAdventure}
+          unRender={props.unRender}
+        />)
+      : null }
     </ul>
   )
 }
 
 export default StaticNavList;
+
+// onMouseLeave={() => props.fadeListOut()}
