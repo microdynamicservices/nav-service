@@ -1,26 +1,31 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path')
-const db = require('../db/index.js');
+const db = require('../db/pg.js');
 
 const app = express();
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, '/../dist')));
+app.use('/', express.static(path.join(__dirname, '/../dist')));
 
-app.get('/headers', (req, res) => {
-  db.findHeaders((err, data) => {
-    if (err) (console.log(err))
-    else res.send(data)
-  })
+app.get('/seed', (req, res) => {
+  db.seed();
+  res.send('seeding!')
 })
 
-app.get('/adventures', (req, res) => {
-  db.findAdventures((err, data) => {
-    if (err) console.log(err)
-    else res.send(data)
-  })
-})
+// app.get('/headers', (req, res) => {
+//   db.findHeaders((err, data) => {
+//     if (err) (console.log(err))
+//     else res.send(data)
+//   })
+// })
+
+// app.get('/adventures', (req, res) => {
+//   db.findAdventures((err, data) => {
+//     if (err) console.log(err)
+//     else res.send(data)
+//   })
+// })
 
 // app.post('/populate', (req, res) => {
 //   let payload = req.body;

@@ -29,7 +29,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    Axios.get('http://ec2-18-223-184-74.us-east-2.compute.amazonaws.com/headers')
+    Axios.get('/')
       .then((res) => this.setState({ categories: res.data }) )
       .catch((err) => console.log(err));
 
