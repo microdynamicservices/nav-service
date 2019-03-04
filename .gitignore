@@ -2,3 +2,8 @@ node_modules
 .env
 dist/bundle.js
 .DS_Store
+adv.csv
+adventure.csv
+headers.csv
+relations.csv
+test.csv

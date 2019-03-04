@@ -9,7 +9,8 @@ app.use(cors());
 app.use('/', express.static(path.join(__dirname, '/../dist')));
 
 app.get('/seed', (req, res) => {
-  db.seed();
+  // db.seedHeader();
+  db.seedAdventures();
   res.send('seeding!')
 })
 
