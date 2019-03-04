@@ -1,26 +1,5 @@
-require('dotenv').config('../.env')
-const pg = require('pg')
 const faker = require('faker')
-const path = require('path')
-const knexConfig = require('./knexfile.js')
 const ObjectsToCsv = require('objects-to-csv');
-
-const knex = require('knex')({
-  client: 'postgresql',
-  connection: 'postgres:laura:sdc022019@localhost:5432/adventures',
-})
-
-// ({
-//   client: 'pg',
-//   version: '11.1',
-//   connection: {
-//     host : process.env.DB_HOST,
-//     user : process.env.DB_USER,
-//     password : process.env.DB_PASSWORD,
-//     database : process.env.DB_NAME
-//   }
-// });
-
 
 let random = () => {
   return Math.ceil(Math.random() * 10000);
