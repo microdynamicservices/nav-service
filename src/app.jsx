@@ -23,17 +23,29 @@ class App extends React.Component {
   //   .catch(() => console.log('Failed to populated database'));
   // }
 
+  random() {
+    return Math.ceil(Math.random() * 10000);
+  }
+
   selectAdventure(target, category) {
     const clickEvent = new CustomEvent('changeID', { detail: [target, category] });
     window.dispatchEvent(clickEvent);
   }
 
   componentDidMount() {
-    Axios.get('http://ec2-18-223-184-74.us-east-2.compute.amazonaws.com/headers')
-      .then((res) => this.setState({ categories: res.data }) )
+    
+    Axios.get('/headers')
+      .then((res) => {
+        let payload = res.data
+        let categories = [];
+        payload.forEach((result) => {
+          categories.push(result.category)
+        })
+        this.setState({ categories: res.data })
+      } )
       .catch((err) => console.log(err));
-
-    Axios.get('http://ec2-18-223-184-74.us-east-2.compute.amazonaws.com/adventures')
+// 'http://ec2-18-223-184-74.us-east-2.compute.amazonaws.com/adventures'
+    Axios.get('/adventures')
       .then((res) => this.setState({ adventures: res.data }) )
       .catch((err) => console.log(err));
 

@@ -59,7 +59,7 @@ class StaticNav extends React.Component {
                 renderFlip={this.state.renderFlip}
                 unRender={this.unRender.bind(this)} 
                 key={entry.id}
-                category={entry.catagory} // sic.
+                category={entry.category} // sic.
                 {...this.props} 
               />
             )

@@ -9,7 +9,7 @@ const buttStyle = {
   flexGrow: "1",
   color: "white",
   fontFamily: `"BlinkMacSystemFont", "Roboto", "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif`,
-  fontSize: "22px",
+  fontSize: "14px",
   cursor: "pointer",
   // transition: `color 195ms ease-in 0s`,
   transitionProperty: `color`,
@@ -36,7 +36,7 @@ class StaticNavHeader extends React.Component {
   categorizeAdventures() {
     const categorizedAdventures = [];
     this.props.adventures.forEach((adventure) => {
-      if (adventure.catagory === this.props.category) { //sic
+      if (adventure.categoryid === this.props.category.id) { //sic
         categorizedAdventures.push(adventure);
       }
     })
@@ -55,7 +55,7 @@ class StaticNavHeader extends React.Component {
   componentDidMount() {
     // This invocation is delayed to give the asynchronous call to the
     // database a chance to complete before running itself.
-    setTimeout(this.categorizeAdventures.bind(this), 250)
+    setTimeout(this.categorizeAdventures.bind(this), 2250)
   };
 
   componentDidUpdate(prevProps) {

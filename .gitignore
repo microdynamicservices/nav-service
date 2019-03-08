@@ -1,7 +1,9 @@
 node_modules
 .env
-package-lock.json
 dist/bundle.js
-mockdata.js
-todo.md
-hello_world.pem
+.DS_Store
+adv.csv
+adventure.csv
+headers.csv
+relations.csv
+test.csv
