@@ -5,7 +5,7 @@ const pg = require('pg')
 module.exports = {
   development: {
     client: 'postgresql',
-    connection: 'postgres:laura:sdc022019@localhost:5432/adventures',
+    connection: process.env.PG_CONNECTION_STRING,
     migrations: {
       directory: __dirname + '/migrations'
     },

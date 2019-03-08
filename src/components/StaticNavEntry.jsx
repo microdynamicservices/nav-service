@@ -18,7 +18,7 @@ const StaticNavEntry = (props) => {
   transStyle.color = "#d9b310";
 
   return(
-    <li style={itemStyle} onClick={(e) => { props.unRender(), props.selectAdventure(props.adventure.id, props.adventure.catagory /* sic */) }}> 
+    <li style={itemStyle} onClick={(e) => { props.unRender(), props.selectAdventure(props.adventure.id, props.adventure.category /* sic */) }}> 
       {props.adventure.title}
     </li>
   )
